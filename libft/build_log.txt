@@ -1,0 +1,42 @@
+Libft build verification log
+$ make
+make: *** No rule to make target `libft.als', needed by `all'.  Stop.
+make: Nothing to be done for `all'.
+$ make re
+rm -f ft_bzero.o ft_calloc.o ft_isalnum.o ft_isalpha.o ft_isascii.o ft_isdigit.o ft_isprint.o ft_itoa.o ft_memchr.o ft_memcmp.o ft_memcpy.o ft_memmove.o ft_memset.o ft_putchar_fd.o ft_putendl_fd.o ft_putnbr_fd.o ft_putstr_fd.o ft_split.o ft_strchr.o ft_strdup.o ft_striteri.o ft_strjoin.o ft_strlcat.o ft_strlcpy.o ft_strmapi.o ft_strncmp.o ft_strnstr.o ft_strrchr.o ft_strtrim.o ft_substr.o ft_toupper.o bonus/ft_lstnew.o
+rm -f libft.a
+cc -Werror -Wall -Wextra -I.   -c -o ft_bzero.o ft_bzero.c
+cc -Werror -Wall -Wextra -I.   -c -o ft_calloc.o ft_calloc.c
+cc -Werror -Wall -Wextra -I.   -c -o ft_isalnum.o ft_isalnum.c
+cc -Werror -Wall -Wextra -I.   -c -o ft_isalpha.o ft_isalpha.c
+cc -Werror -Wall -Wextra -I.   -c -o ft_isascii.o ft_isascii.c
+cc -Werror -Wall -Wextra -I.   -c -o ft_isdigit.o ft_isdigit.c
+cc -Werror -Wall -Wextra -I.   -c -o ft_isprint.o ft_isprint.c
+cc -Werror -Wall -Wextra -I.   -c -o ft_itoa.o ft_itoa.c
+cc -Werror -Wall -Wextra -I.   -c -o ft_memchr.o ft_memchr.c
+cc -Werror -Wall -Wextra -I.   -c -o ft_memcmp.o ft_memcmp.c
+cc -Werror -Wall -Wextra -I.   -c -o ft_memcpy.o ft_memcpy.c
+cc -Werror -Wall -Wextra -I.   -c -o ft_memmove.o ft_memmove.c
+cc -Werror -Wall -Wextra -I.   -c -o ft_memset.o ft_memset.c
+cc -Werror -Wall -Wextra -I.   -c -o ft_putchar_fd.o ft_putchar_fd.c
+cc -Werror -Wall -Wextra -I.   -c -o ft_putendl_fd.o ft_putendl_fd.c
+cc -Werror -Wall -Wextra -I.   -c -o ft_putnbr_fd.o ft_putnbr_fd.c
+cc -Werror -Wall -Wextra -I.   -c -o ft_putstr_fd.o ft_putstr_fd.c
+cc -Werror -Wall -Wextra -I.   -c -o ft_split.o ft_split.c
+cc -Werror -Wall -Wextra -I.   -c -o ft_strchr.o ft_strchr.c
+cc -Werror -Wall -Wextra -I.   -c -o ft_strdup.o ft_strdup.c
+cc -Werror -Wall -Wextra -I.   -c -o ft_striteri.o ft_striteri.c
+cc -Werror -Wall -Wextra -I.   -c -o ft_strjoin.o ft_strjoin.c
+cc -Werror -Wall -Wextra -I.   -c -o ft_strlcat.o ft_strlcat.c
+cc -Werror -Wall -Wextra -I.   -c -o ft_strlcpy.o ft_strlcpy.c
+cc -Werror -Wall -Wextra -I.   -c -o ft_strmapi.o ft_strmapi.c
+cc -Werror -Wall -Wextra -I.   -c -o ft_strncmp.o ft_strncmp.c
+cc -Werror -Wall -Wextra -I.   -c -o ft_strnstr.o ft_strnstr.c
+cc -Werror -Wall -Wextra -I.   -c -o ft_strrchr.o ft_strrchr.c
+cc -Werror -Wall -Wextra -I.   -c -o ft_strtrim.o ft_strtrim.c
+cc -Werror -Wall -Wextra -I.   -c -o ft_substr.o ft_substr.c
+cc -Werror -Wall -Wextra -I.   -c -o ft_toupper.o ft_toupper.c
+ar rcs libft.a ft_bzero.o ft_calloc.o ft_isalnum.o ft_isalpha.o ft_isascii.o ft_isdigit.o ft_isprint.o ft_itoa.o ft_memchr.o ft_memcmp.o ft_memcpy.o ft_memmove.o ft_memset.o ft_putchar_fd.o ft_putendl_fd.o ft_putnbr_fd.o ft_putstr_fd.o ft_split.o ft_strchr.o ft_strdup.o ft_striteri.o ft_strjoin.o ft_strlcat.o ft_strlcpy.o ft_strmapi.o ft_strncmp.o ft_strnstr.o ft_strrchr.o ft_strtrim.o ft_substr.o ft_toupper.o 
+$ make bonus
+cc -Werror -Wall -Wextra -I.   -c -o bonus/ft_lstnew.o bonus/ft_lstnew.c
+ar rcs libft.a bonus/ft_lstnew.o
