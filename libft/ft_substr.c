@@ -1,34 +1,64 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: halin <halin@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/09 11:53:29 by username          #+#    #+#             */
+/*   Updated: 2026/11/09 11:53:31 by halin            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-char	*ft_substr(char const *s, int start, int len)
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-    int length = 0;
-    int i = 0;
-    char *dest = NULL;
-    
-    while (s[length] != '\0')
-        length++;
-    if (start >= length)
-        return (NULL);
-    if ((length - start) >= len)
-    {
-        char *dest = malloc(sizeof(char) * (len + 1));
-        while (i < len)
-        {
-            dest[i] = s[start];
-            i++;
-            start++;
-        }
-        dest[i] = '\0';
-    }
-    else
-    {
-        char *dest = malloc(sizeof(char) * ((length - start) + 1));
-        while (s[start] != '\0')
-        {
-            dest[i] = s[start + i];
-            i++;
-        }
-        dest[i] = '\0';
-    }
-    return ((char *)dest);
+	size_t	i;
+	size_t	j;
+	char	*sub;
+	size_t	len_s;
+	size_t	end;
+
+	end = start + len;
+	i = start;
+	j = 0;
+	len_s = 0;
+	while (s[len_s])
+		len_s++;
+	if (start >= len_s)
+	{
+		sub = malloc(1);
+		if (!sub)
+			return (NULL);
+		sub[0] = '\0';
+		return (sub);
+	}
+	//what if the input of len has overflow risk?//
+	else if (end >= len_s)
+	{
+		sub = malloc(sizeof(char) * (len_s - start + 1));
+		if (!sub)
+			return (NULL);
+		while (s[i])
+		{
+			sub[j] = s[i];
+			i++;
+			j++;
+		}
+	}
+	else
+	{
+		sub = malloc(sizeof(char) * (end - start + 1));
+		if (!sub)
+			return (NULL);
+		while (i < end)
+		{
+			sub[j] = s[i];
+			i++;
+			j++;
+		}
+	}
+	sub[j] = '\0';
+	return (sub);
 }

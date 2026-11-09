@@ -1,72 +1,84 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: halin <halin@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/09 11:39:33 by username          #+#    #+#             */
+/*   Updated: 2026/11/09 12:43:31 by halin            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-
-int count_digit(long int long_n, int count)
-{
-    if (long_n < 0)
-        long_n = -long_n;
-    if (long_n == 0)
-        return (count);
-    return (count_digit(long_n / 10, count + 1));
-
-}
-
-char *convert(long int long_n, char *dest, int count, int sign)
-{
-
-    if (long_n < 0)
-    {
-        long_n = -long_n;
-    }
-
-    if (count > 0)
-    {
-        count--;
-        dest[count] = (long_n % 10) + '0';
-        convert(long_n / 10, dest, count, sign);
-    }
-    return (dest);
-}
-
-#include <unistd.h>
 char	*ft_itoa(int n)
 {
-    long int long_n = n;
-    int count = 0;
-    int sign = 1;
+	int			count;
+	long int	original;
+	long int	long_n;
+	char		*nbr;
+	int			i;
 
-    if (long_n < 0)
-        sign = -1;
-    if (long_n >= 0)
-        count = count_digit(long_n, count);
-    else
-        count = count_digit(long_n, count) + 1;
-    char *dest = malloc(sizeof(char) * (count + 1));
-    dest[count] = '\0';
-    dest = convert(long_n, dest, count, sign);
-    //be careful of the '-' handling// 
-    //the first time i put it in the recursion as dest[count] = '-'//
-    // and it overwrite every index in dest in calling the recurssive function.//
-    if (sign == -1)
-        dest[0] = '-';
-    return (dest);
+	long_n = n;
+	original = long_n;
+	count = 0;
+	if (long_n < 0)
+		long_n = -long_n;
+	while (long_n > 0)
+	{
+		long_n = long_n / 10;
+		count++;
+	}
+	if (n > 0)
+	{
+		nbr = malloc(sizeof(char) * (count + 1));
+		if (!nbr)
+			return (NULL);
+		i = count;
+	}
+	else if (n < 0)
+	{
+		i = count + 1;
+		nbr = malloc(sizeof(char) * (count + 2));
+		if (!nbr)
+			return (NULL);
+	}
+	else if (n == 0)
+	{
+		nbr = malloc(sizeof(char) * (2));
+		if (!nbr)
+			return (NULL);
+		nbr[0] = '0';
+		nbr[1] = '\0';
+		return (nbr);
+	}
+	nbr[i] = '\0';
+	i--;
+	if (original < 0)
+		original = -original;
+	while (original != 0)
+	{
+		nbr[i] = (original % 10) + '0';
+		original = original / 10;
+		if (original == 0 && n > 0)
+			break ;
+		i--;
+	}
+	if (n < 0)
+		nbr[i] = '-';
+	return (nbr);
 }
-
-int main()
-{
-    int i = 0;
-    char *dest = ft_itoa(-197);
-    while (dest[i] != '\0')
-    {
-        write(1, &dest[i], 1);
-        i++;
-    }
-}
-
-
 /*
-#include <stdio.h>
-int main()
+int main(void)
 {
-    printf("%d", count_digit(-222215762, 0));
+char *nbr;
+
+nbr = ft_itoa(0);
+if (!nbr)
+return (1);
+
+write(1, nbr, 1);
+free(nbr);
+return (0);
 }
 */

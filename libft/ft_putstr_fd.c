@@ -1,10 +1,32 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: halin <halin@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/09 11:52:12 by username          #+#    #+#             */
+/*   Updated: 2026/11/09 11:52:19 by halin            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-void ft_putstr_ft(char *str, int fd)
+
+void	ft_putstr_fd(char *s, int fd)
 {
-    int i = 0;
-    while (str[i] != '\0')
-    {
-        write(fd, &str[i], 1);
-        i++;
-    }
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
 }
+
+/*
+int main()
+{
+ft_putstr_fd("sgas", 1);
+}
+*/

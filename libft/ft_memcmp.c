@@ -1,25 +1,32 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: halin <halin@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/09 11:51:22 by username          #+#    #+#             */
+/*   Updated: 2026/11/09 11:51:24 by halin            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-int ft_memcmp(const void *s1, const void *s2, size_t n)
-{
-    char *a;
-    char *b;
-    a = (char *)s1;
-    b = (char *)s2;
-    size_t i = 0;
-    while (i < n)
-    {
-        if (a[i] == b[i])
-            i++;
-        else 
-            return (unsigned char)a[i] - (unsigned char)b[i];   
-    }
-    return 0;
-    
-}
-#include <stdio.h>
 
-int main()
+int	memcmp(const void *s1, const void *s2, size_t n)
 {
-    printf("%d", ft_memcmp("abceeee", "abddefs", 3));
+	const unsigned char	*s1_;
+	const unsigned char	*s2_;
+	size_t				i;
 
+	i = 0;
+	s1_ = (const unsigned char *) s1;
+	s2_ = (const unsigned char *) s2;
+	while (i < n)
+	{
+		if (s1_[i] == s2_[i])
+			i++;
+		else
+			return (s1_[i] - s2_[i]);
+	};
+	return (0);
 }

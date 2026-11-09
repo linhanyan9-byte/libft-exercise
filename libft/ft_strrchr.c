@@ -1,17 +1,32 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: halin <halin@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/09 11:53:10 by username          #+#    #+#             */
+/*   Updated: 2026/11/09 11:53:11 by halin            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
+
 char	*ft_strrchr(const char *s, int c)
 {
-    int length = 0;
-    unsigned char uc = (unsigned char)c;
-    while (s[length] != '\0')
-        length++;
-    if (uc == '\0')
-        return ((char *)&s[length]);
-    while (length >= 0)
-    {
-        if (s[length] == uc)
-            return ((char *)&s[length]);
-        length--;
-    }
-    return (NULL);
+	char	*prt;
+
+	prt = (char *) s;
+	while (*prt)
+		prt++;
+	while (prt != s)
+	{
+		if (*prt == c)
+			return (prt);
+		else
+			prt--;
+	}
+	if (*prt == c)
+		return (prt);
+	return (NULL);
 }

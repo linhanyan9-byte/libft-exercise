@@ -1,30 +1,51 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: halin <halin@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/09 11:53:07 by username          #+#    #+#             */
+/*   Updated: 2026/11/09 11:53:08 by halin            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-char	*ft_strnstr( char *big,  char *little, int len)
+
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-    int i = 0;
-    int j = 0;
+	size_t	i;
+	size_t	j;
 
-    if (little[0] == '\0')
-        return (big);
-    while (i < len)
-    {
-        while ((i + j) < len && big[i + j] == little[j] && big[i + j] != '\0' && little[j] != '\0')
-            j++;
-        if (little[j] == '\0')
-            return (&big[i]);
-        if (big[i+j] == '\0' && little[j] != '\0')
-            return NULL;
-        i++;
-        j = 0;
-    }
-    return NULL;
-
+	i = 0;
+	j = 0;
+	if (little[0] == '\0')
+		return ((char *) big);
+	//what is len is bigger than the char *big//
+	while (i < len && big[i])
+	{
+		j = 0;
+		if (big[i] == little[j])
+		{
+			while (little[j] && (i + j < len) && big[i + j])
+			{
+				if (big[i + j] == little[j])
+					j++;
+				else
+					break ;
+			}
+			if (little[j] == '\0')
+				return ((char *) & big[i]);
+		}
+		i++;
+	}
+	return (NULL);
 }
-
-#include <stdio.h>
+/*
 int main()
 {
-    char *big = "bubblebutt";
-    char *little = "butt";
-    printf("%s",ft_strnstr(big, little, 2));
+char *s;
+s =ft_strnstr("babybutt", "aby", 2);
+printf("%s", s);
 }
+*/

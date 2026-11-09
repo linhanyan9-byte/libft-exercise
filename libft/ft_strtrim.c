@@ -1,52 +1,79 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: halin <halin@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/09 11:53:12 by username          #+#    #+#             */
+/*   Updated: 2026/11/09 11:53:28 by halin            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
+
 char	*ft_strtrim(char const *s1, char const *set)
 {
-    int i = 0;
-    int j = 0;
-    int len = 0;
-    int count = 0;
-    int k = 0;
+	char	*trim;
+	size_t	len_s1;
+	size_t	i;
+	size_t	j;
+	size_t	start;
+	size_t	end;
+	size_t	size;
 
-    while (set[k] != '\0')
-    {
-        if (s1[i] == set[k])
-        {
-            i++;
-            k = 0;
-        }
-        else
-            k++;
-    }
-    while (s1[len] != '\0')
-        len++;
-    k = 0;
-    while (set[k] != '\0')
-    {
-        if (len > i && s1[len - 1] == set[k] )
-        {
-            len--;
-            k = 0;
-        }
-        else
-            k++;
-    }
-
-    count = len - i;
-    char *dest = malloc(sizeof(char) * (count + 1));
-    if (dest == NULL)
-        return NULL;
-    while (j < count)
-    {
-        dest[j] = s1[i];
-        i++;
-        j++;
-    }
-    dest[j] = '\0';
-    return (dest);
+	i = 0;
+	start = 0;
+	len_s1 = 0;
+	while (s1[len_s1])
+		len_s1++;
+	if (len_s1 == 0)
+	{
+		trim = malloc(1);
+		if (!trim)
+			return (NULL);
+		trim[0] = '\0';
+		return (trim);
+	}
+	end = len_s1;
+	while (s1[start])
+	{
+		j = 0;
+		while (set[j])
+		{
+			if (s1[start] == set[j])
+				break ;
+			j++;
+		}
+		if (set[j] == '\0')
+			break ;
+		start++;
+	}
+	while (end > start)
+	{
+		j = 0;
+		while (set[j])
+		{
+			if (s1[end - 1] == set[j])
+				break ;
+			j++;
+		}
+		if (set[j] == '\0')
+			break ;
+		end--;
+	}
+	size = end - start;
+	trim = malloc(sizeof(char)*size + 1);
+	if (!trim)
+		return (NULL);
+	while (start < end)
+	{
+		trim[i] = s1[start];
+		i++;
+		start++
+	}
+	trim[i] = '\0';
+	return (trim);
 }
 
-#include <stdio.h>
-int main()
-{
-    printf("%s",ft_strtrim("abc bubble butt    bbc", "abc"));
-}
+//takeaway: check the edge case of empty string//
