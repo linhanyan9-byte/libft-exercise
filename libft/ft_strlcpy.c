@@ -6,41 +6,39 @@
 /*   By: halin <halin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/09 11:52:55 by username          #+#    #+#             */
-/*   Updated: 2026/11/09 11:52:56 by halin            ###   ########.fr       */
+/*   Updated: 2026/11/12 15:33:17 by halin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlcpy(char *dst, const char *src, int dstsize)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	int	i = 0;
-	int	length = 0;
+	size_t	i;
+	size_t	length;
 
+	i = 0;
+	length = 0;
 	while (src[length] != '\0')
 		length++;
-	//dont forget if dstsize is 0//
-	if (dstsize == 0)
+	if (size == 0)
 		return (length);
-	// honestly, you dont need to separate into two cases. it will always copy up to (dstsize-1)//
-	if (dstsize > length)
+	while (i < size - 1 && src[i] != '\0')
 	{
-		while (src[i] != '\0')
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = '\0';
+		dst[i] = src[i];
+		i++;
 	}
-	i = 0;
-	if (dstsize <= length)
-	{
-		while (i < dstsize - 1)
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = '\0';
-	}
+	dst[i] = '\0';
 	return (length);
 }
+/*
+int	main(void)
+{
+	char	dst[] = "78977s";
+	int		length;
+
+	length = ft_strlcpy(dst, "Hello duck", 7);
+	printf("%s\n", dst);
+	printf("%d\n", length);
+}
+	*/

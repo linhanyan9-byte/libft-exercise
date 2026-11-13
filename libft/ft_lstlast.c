@@ -6,7 +6,7 @@
 /*   By: halin <halin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/09 11:51:06 by username          #+#    #+#             */
-/*   Updated: 2026/11/09 11:51:08 by halin            ###   ########.fr       */
+/*   Updated: 2026/11/10 12:09:25 by halin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	//while (lst->next)
 	while (lst)
 	{
 		if (lst->next == NULL)
@@ -24,11 +23,12 @@ t_list	*ft_lstlast(t_list *lst)
 	return (lst);
 }
 /*
-int main(void)
+int	main(void)
 {
-t_list *new;
-t_list *hey;
-t_list *duck;
+t_list	*new;
+t_list	*hey;
+t_list	*duck;
+
 new = malloc(sizeof(t_list));
 hey = malloc(sizeof(t_list));
 duck = malloc(sizeof(t_list));

@@ -6,11 +6,12 @@
 /*   By: halin <halin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/09 11:37:10 by username          #+#    #+#             */
-/*   Updated: 2026/11/09 12:44:13 by halin            ###   ########.fr       */
+/*   Updated: 2026/11/10 16:08:01 by halin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	unsigned int	i;
@@ -33,7 +34,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	return (s1);
 }
 /*
-char ft_tolower(unsigned int i, char c)
+char	ft_tolower(unsigned int i, char c)
 {
 (void)i;
 if (c >= 'A' && c <= 'Z')
@@ -41,11 +42,11 @@ c+=32;
 return (c);
 }
 
-int main(void)
+int	main(void)
 {
-char s[5] = "SDFH";
-int i;
-char *test;
+char	s[5] = "SDFH";
+int		i;
+char	*test;
 
 i = 0;
 test = ft_strmapi(s, ft_tolower);

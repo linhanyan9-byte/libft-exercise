@@ -6,14 +6,23 @@
 /*   By: halin <halin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/09 11:49:19 by username          #+#    #+#             */
-/*   Updated: 2026/11/09 11:49:28 by halin            ###   ########.fr       */
+/*   Updated: 2026/11/10 10:23:31 by halin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 int	ft_isascii(int c)
 {
 	if (c >= 0 && c <= 127)
 		return (1);
 	return (0);
 }
+/*
+int	main(void)
+{
+	printf("%d\n", ft_isascii(-1));
+	printf("%d\n", ft_isascii(1));
+	return (0);
+}
+	*/

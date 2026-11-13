@@ -6,7 +6,7 @@
 /*   By: halin <halin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/09 11:49:43 by username          #+#    #+#             */
-/*   Updated: 2026/11/09 11:49:47 by halin            ###   ########.fr       */
+/*   Updated: 2026/11/10 10:27:18 by halin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,15 @@
 
 int	ft_isprint(int c)
 {
-	// be aware, ' '(space) is also printable//
 	if (c >= 32 && c <= 126)
 		return (1);
 	return (0);
 }
+/*
+int	main(void)
+{
+	printf("%d\n", ft_isprint('\n'));
+	printf("%d\n", ft_isprint(' '));
+	return (0);
+}
+*/

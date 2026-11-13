@@ -6,11 +6,18 @@
 /*   By: halin <halin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/09 11:52:41 by username          #+#    #+#             */
-/*   Updated: 2026/11/09 11:52:44 by halin            ###   ########.fr       */
+/*   Updated: 2026/11/13 11:43:01 by halin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/* void	to_lower(unsigned int c, char *s)
+{
+	(void)c;
+	if (*s >= 'A' && *s <= 'Z')
+		*s += 32;
+} */
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
@@ -24,26 +31,11 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 	}
 }
 /*
-void ft_tolower(unsigned int i, char *c)
+int	main(void)
 {
-(void)i;
-if (*c >= 'A' && *c <= 'Z')
-*c+=32;
-}
+	char	s[12] = "BABYBUTT";
 
-int main(void)
-{
-char s[5] = "SDFH";
-int i;
-char *test;
-
-i = 0;
-ft_striteri(s, ft_tolower);
-while (s[i])
-{
-write(1, &s[i], 1);
-i++;
+	ft_striteri(s, &to_lower);
+	printf("%s", s);
 }
-return (0);
-}
-*/
+	*/

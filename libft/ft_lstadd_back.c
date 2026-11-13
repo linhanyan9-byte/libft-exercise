@@ -6,7 +6,7 @@
 /*   By: halin <halin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/09 11:50:50 by username          #+#    #+#             */
-/*   Updated: 2026/11/09 13:07:16 by halin            ###   ########.fr       */
+/*   Updated: 2026/11/10 18:30:24 by halin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,22 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	t_list	*temp;
 
 	temp = *lst;
-    if (*lst == NULL)
-    {
-        *lst = *new;
-        return ;
-    }
+	if (*lst == NULL)
+	{
+		*lst = new;
+		return ;
+	}
 	while ((*lst)->next)
 		(*lst) = (*lst)->next;
 	(*lst)->next = new;
-	*lst = *temp;
+	*lst = temp;
 }
 
 /* int main(void)
 {
-t_list *hey;
-t_list *duck;
-t_list *queen;
+t_list	*hey;
+t_list	*duck;
+t_list	*queen;
 
 queen = malloc(sizeof(t_list));
 hey = malloc(sizeof(t_list));

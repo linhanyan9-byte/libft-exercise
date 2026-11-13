@@ -6,13 +6,13 @@
 /*   By: halin <halin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/09 11:52:58 by username          #+#    #+#             */
-/*   Updated: 2026/11/09 11:52:59 by halin            ###   ########.fr       */
+/*   Updated: 2026/11/12 15:41:14 by halin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(char *s)
+int	ft_strlen(const char *s)
 {
 	int	i;
 

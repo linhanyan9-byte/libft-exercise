@@ -6,7 +6,7 @@
 /*   By: halin <halin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/09 11:53:07 by username          #+#    #+#             */
-/*   Updated: 2026/11/09 11:53:08 by halin            ###   ########.fr       */
+/*   Updated: 2026/11/10 17:23:51 by halin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	i = 0;
 	j = 0;
 	if (little[0] == '\0')
-		return ((char *) big);
-	//what is len is bigger than the char *big//
+		return ((char *)big);
 	while (i < len && big[i])
 	{
 		j = 0;
@@ -35,7 +34,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 					break ;
 			}
 			if (little[j] == '\0')
-				return ((char *) & big[i]);
+				return ((char *)&big[i]);
 		}
 		i++;
 	}

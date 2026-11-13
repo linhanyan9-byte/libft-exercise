@@ -6,7 +6,7 @@
 /*   By: halin <halin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/09 11:51:37 by username          #+#    #+#             */
-/*   Updated: 2026/11/09 11:51:58 by halin            ###   ########.fr       */
+/*   Updated: 2026/11/10 13:51:05 by halin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	unsigned char	unsigned_c = (unsigned char)c;
+	unsigned char	unsigned_c;
 	size_t			i;
 	unsigned char	*str;
 
-	str = (unsigned char *) s;
+	unsigned_c = (unsigned char)c;
+	str = (unsigned char *)s;
 	i = 0;
 	while (i < n)
 	{
@@ -27,3 +28,13 @@ void	*ft_memset(void *s, int c, size_t n)
 	}
 	return (s);
 }
+/*
+int	main(void)
+{
+	int c = 'a';
+	char str[5] = "baca";
+	char *receive;
+	receive = (char *)ft_memset((void *)str, c, 4);
+	printf("%s", receive);
+}
+*/

@@ -6,7 +6,7 @@
 /*   By: halin <halin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/09 11:52:46 by username          #+#    #+#             */
-/*   Updated: 2026/11/09 11:52:50 by halin            ###   ########.fr       */
+/*   Updated: 2026/11/10 15:41:34 by halin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,22 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (!join)
 		return (NULL);
 	while (j < len_s1)
-	{
 		join[i++] = s1[j++];
-	}
 	j = 0;
 	while (j < len_s2)
-	{
 		join[i++] = s2[j++];
-	}
 	join[i] = '\0';
 	return (join);
 }
+/*
+int main(void)
+{
+    char *result;
+
+    result = ft_strjoin("BABY", " DUCk");
+	if(!result)
+		return 1;
+    printf("%s\n", result);
+    free(result);
+}
+	*/

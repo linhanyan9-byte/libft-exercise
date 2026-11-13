@@ -6,7 +6,7 @@
 /*   By: halin <halin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/09 11:50:59 by username          #+#    #+#             */
-/*   Updated: 2026/11/09 11:51:02 by halin            ###   ########.fr       */
+/*   Updated: 2026/11/10 12:01:48 by halin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
 	new->next = *lst;
-	//you need to update the **(head pointer) to be the new//
 	*lst = new;
 }
 /*
